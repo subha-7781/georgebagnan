@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTOMOBILE DEPARTMENT</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        /* Header Styling */
+        .header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            text-align: left;
+            border-bottom: 2px solid #333;
+        }
+
+        .header.dark-mode {
+            background-color: #333;
+            border-bottom: 2px solid #ffdf28;
+        }
+
+
+        .header img {
+            height: 100px;
+            width: 150px;
+        }
+        
+        /* header navbar styling*/
+        .header .nav-items {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            transition: transform 0.5s ease;
+        }
+
+        .header .nav-items a {
+            color: #000000;
+            text-decoration: none;
+            padding: 10px;
+            position: relative;
+            
+        }
+
+        .header.dark-mode .nav-items a {
+            color: #ffffff;
+        }
+        .header .nav-items a:hover{
+            color:#3011f6;
+            transform: scale(1.1);
+            opacity: 1;
+          
+        }
+        .header.dark-mode .nav-items a:hover{
+            color:#d800eb
+           
+        }
+
+        /* Dropdown Menu Styling */
+        .header .nav-items .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .header .nav-items .dropdown-content {
+    display: block; /* Keep display block for visibility */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #21ffd3d0;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    opacity: 0;  /* Initially hidden */
+    transform: translateY(-10px);  /* Slight upward position */
+    transition: opacity 0.3s ease, transform 0.3s ease;  /* Smooth animation */
+    pointer-events: none; /* Prevent clicking when hidden */
+}
+
+
+        .header.dark-mode .dropdown-content {
+            background-color: #363636;
+        }
+
+       /* Add hover effect on dropdown links */
+.header .nav-items .dropdown-content a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    background-color: #21ffd3d0;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+        ..header.dark-mode .dropdown-content a {
+    color: #ffffff;
+    background-color: #363636;
+}
+
+
+.header .nav-items .dropdown-content a:hover {
+    background-color: #ffffff;
+    color: #3011f6;
+   
+}
+
+        .header.dark-mode .dropdown-content a:hover {
+            background-color: #ffee00;
+        }
+
+       
+.header .nav-items .dropdown:hover .dropdown-content {
+    opacity: 1;  /* Make it visible */
+    transform: translateY(0);  /* Move to normal position */
+    pointer-events: auto;  /* Allow interaction */
+}
+
+
+      /*header nav bar end*/
+
+      
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #ffffff;
+            padding: 15px 25px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 2px solid #000000;
+        }
+
+        .navbar.dark-mode {
+            background-color: #333;
+            border-bottom: 2px solid #ffdf28;
+        }
+
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 5px;
+        }
+
+        .navbar ul li {
+            position: relative;
+        }
+
+        .navbar ul li a {
+            color: #000000;
+            text-decoration: none;
+            padding: 20px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #3011f6;
+            background-color: transparent;
+            border-radius: 2px;
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .navbar.dark-mode ul li a {
+            color: #e0e0e0;
+        }
+
+        .navbar.dark-mode ul li a:hover {
+            background-color: transparent;
+        }
+/* Navbar Dropdown Menu Styling */
+.navbar ul li {
+    position: relative;
+}
+
+.navbar ul li .dropdown {
+    visibility: hidden; /* Hide the dropdown initially */
+    opacity: 0; /* Fully transparent initially */
+    position: absolute;
+    top: 100%; /* Position dropdown below the parent item */
+    left: 0;
+    background-color: #21ffd3d0;
+    min-width: 120px; /* Adjust width as needed */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transform: translateY(-10px); /* Start slightly off-screen */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.navbar.dark-mode .dropdown {
+    background-color: #21ffd3d0;
+}
+
+.navbar ul li:hover .dropdown {
+    visibility: visible; /* Show the dropdown */
+    opacity: 1; /* Fully opaque */
+    transform: translateY(0); /* Move to original position */
+}
+
+.navbar ul li .dropdown a {
+    display: block; /* Ensure each link is on a new line */
+    padding: 12px 16px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.navbar.dark-mode .dropdown a {
+    color: #000000;
+}
+
+.navbar ul li .dropdown a:hover {
+    background-color: #fefefe;
+    color: #3011f6;
+}
+
+.navbar.dark-mode .dropdown a:hover {
+    background-color: #ffee00;
+}
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 7px;
+            right: 5px;
+            background-color: transparent;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 2px;
+            z-index: 100;
+        }
+
+        .dark-mode-toggle img {
+            width: 50px;
+            height: 60px;
+        }
+        
+        /* New Layout Styling */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .info {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .info h2 {
+            margin-top: 0;
+        }
+
+        .images {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .images img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* General form styles */
+/* General form styles */
+#contactForm {
+  width: 350px; /* Adjusted form size */
+  padding: 20px;
+  justify-items: center;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease-in-out;
+}
+
+#contactForm label {
+  display: flex;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+#contactForm input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+#contactForm button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effects */
+#contactForm input:focus {
+  border-color: #007bff;
+}
+
+#contactForm button:hover {
+  background-color: #0056b3;
+}
+
+/* Dark mode styles */
+body.dark-mode #contactForm {
+  background-color: #2c2c2c;
+}
+
+body.dark-mode #contactForm label {
+  color: #ccc;
+}
+
+body.dark-mode #contactForm input {
+  background-color: #3c3c3c;
+  border-color: #666;
+  color: #fff;
+}
+
+body.dark-mode #contactForm input:focus {
+  border-color: #66b3ff;
+}
+
+body.dark-mode #contactForm button {
+  background-color: #0056b3;
+}
+
+body.dark-mode #contactForm button:hover {
+  background-color: #003d80;
+}
+       
+    </style>
+</head>
+
+<body>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+       
+        <img src="6714975.png" alt="Toggle Dark Mode">
+        
+    </button>
+   <!-- Header Section -->
+<header class="header">
+   <center><p class="headtext"><h3> THE GEORGE TELEGRAPH TRAINING INSTITUTE BAGNAN</h3></p></center>
+    <img src="george-telegraph-logo.png" alt="Logo" class="logo">
+  
+    <div class="nav-items">
+      
+        <div class="dropdown">
+            <a href="#">About</a>
+            <div class="dropdown-content">
+                <a href="#team">Team</a>
+                <a href="#history">History</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Contact</a>
+            <div class="dropdown-content">
+                <a href="#contact">Contact Details</a>
+                <a href="#address">Address</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#others">Others</a>
+          
+        </div>
+    </div>
+   
+</header>
+
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Courses</a>
+                <ul class="dropdown">
+                    <li><a href="param.html">Paramedical Department</a></li>
+                    <li><a href="#coms">Computer Software</a></li>
+                    <li><a href="#comh">Comuter Hardware</a></li>
+                    <li><a href="#moblie">Moblie Repairing</a></li>
+                    <li><a href="#acfr">AC & Fridge Repairing</a></li>
+                    <li><a href="#comuni">Commuinication</a></li>
+                    <li><a href="#Tally">Tally & GST</a></li>
+                    <li><a href="#elec">Electrical Department</a></li>
+                    <li><a href="atm.html">Automobile Department</a></li>
+                </ul>
+            </li>
+            <li><a href="#adm">Addmission</a>
+                <ul class="dropdown">
+                    <li><a href="#adm">Rules & regulation</a></li>
+                    <li><a href="#adm">Eligebility</a></li>
+                </ul>
+            </li>
+            <li><a href="#place">Placements</a></li>
+        </ul>
+    </nav>
+ <!-- Main Content -->
+ <main class="container">
+    <!-- Information Section -->
+    <div class="info">
+        <h2>Automobile Department</h2>
+        <h3>Introduction to Automobile Engineering</h3>
+        <p>Automobile engineering, also referred to as automotive engineering or automotive technology, is a specialized branch of mechanical engineering. It encompasses a wide range of activities, including the design, development, manufacturing, servicing, and maintenance of automobiles such as motorcycles, cars, and trucks, along with their respective engineering subsystems.</p>
+        <p>A Diploma in Automobile Engineering is a specialized educational program that provides comprehensive knowledge in various domains, including mechanical, electrical, electronics, software, and safety engineering, all of which are applied to the design, production, and operation of vehicles. This field is not limited to just cars; it extends to buses and trucks as well.</p>
+        <p>For those interested in pursuing a Diploma in automobile engineering, George Telegraph Training Institute offers a pathway to this exciting field. The eligibility criteria for admission include completing the 12th grade.</p>
+        <p>Upon completing your studies in automobile engineering, you open up a wealth of opportunities in the automotive sector. This industry offers a plethora of job prospects for individuals with expertise in this field. Therefore, if you're seeking career-focused courses after completing your automobile engineering program, consider the options available at our automobile engineering training institute.</p>
+        <h3>After Completion of Automobile Engineering</h3>
+        <p>In India, there are several potential career opportunities in automobile engineering. It is among India's fastest-growing engineering industries. Since the demand for passenger-carrying motor vehicles is on the rise, automobile engineering has gained popularity and significance. Automobile repair courses are currently in high demand due to the rapid development of car component manufacturers and the automobile sector.</p>
+        <p>Automobile engineering subjects have gained a lot of prospects with the increasing popularity of IT, mechanics, and design in the mechanical engineering field. The design, development, manufacture, testing, maintenance, and servicing of automobiles, including cars, trucks, motorcycles, scooters, etc., as well as related sub-engineering systems, are the focus of these branches.</p>
+        <h3>What are the eligibility criteria?</h3>
+        <p>To enroll in an Automobile Engineering course, the eligibility criteria vary depending on your education and skill base. Kindly check the course's section to find out the specific eligibility criteria for the course you are interested in. If you have any doubts and need help figuring out which course is best for you, we can arrange a free counseling session to assist you. You can get all the automobile engineering course details in this session.</p>
+        <h3>Facilities</h3>
+        <p>Our automobile engineering institute provides state-of-the-art facilities for hands-on learning and practical training. Some of the facilities available include:</p>
+        <ul>
+            <li>Engine Components Lab (4-cylinder petrol and diesel engines, variable compression 1 cylinder diesel engine, etc.)</li>
+            <li>Engine Testing and Pollution Measurement Lab (Hydraulic, Mechanical, and Eddy Current Dynamometer setup coupled to the engine, including LPG and CNG engines, etc.)</li>
+            <li>Learn about the advancement and career opportunities with Electronic Vehicles in our advanced industry-oriented curriculum.</li>
+        </ul>
+        <h3>What are the placement opportunities?</h3>
+        <p>At the end of their training program, every student receives 100% placement assistance. There are numerous opportunities to be hired by prominent businesses throughout India. Here are a few graduates from our institute who are currently employed by well-known companies. George Telegraph Training Institute has built a legacy in providing students with top-notch automobile engineering jobs. Placement has always been one of our priorities. Right after the successful completion of the diploma, we help our students with job interviews and get them successfully placed.</p>
+        <h3>Scope of Automobile Engineering</h3>
+        <p>After completing a diploma in any field of automobile engineering, you become eligible to work in various job roles such as:</p>
+        <ul>
+            <li>Automobile Engineer</li>
+            <li>Automobile Repairing Technician</li>
+            <li>Manufacturing Unit Lead</li>
+            <li>Professor</li>
+            <li>Vehicle Expert</li>
+            <li>Consultant</li>
+            <li>Servicing In-Charge</li>
+            <li>Assembly Line Head</li>
+        </ul>
+        <p>There are many top-notch automotive companies opening their doors for hiring. Here are some of the industry's top names:</p>
+        <ul>
+            <li>Kia</li>
+            <li>Tata Motors Ltd</li>
+            <li>Maruti Suzuki India Ltd</li>
+            <li>Mahindra & Mahindra Ltd</li>
+            <li>Hero MotoCorp Ltd</li>
+            <li>Bajaj Auto</li>
+        </ul>
+    </div>
+    
+    <!-- Images Section -->
+    <div class="images">
+        <img src="slider1.jpg" alt="Automobile Engineering Image 1">
+        <img src="slider2.jpg" alt="Automobile Engineering Image 2">
+    </div>
+  
+</main>
+   <!-- Enrollment Form Section -->
+   <div class="form-section">
+    <div class="form-message">
+        <p>Please provide your information below for any inquiries. We will get back to you as soon as possible.</p>
+      </div>
+  <form id="contactForm"> 
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name">
+
+      <label for="number">Mobile Number:</label>
+      <input type="Number" id="number" name="number" placeholder="Enter your Mobile Number">
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+  
+      <button type="submit">Submit</button>
+    </form>
+
+  </div>
+
+  
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 George Telegraph Training Institute. All rights reserved.</p>
+    </footer>
+
+    <script>
+     
+   // Initialize the first slide
+   showSlide(currentSlide);
+
+// Dark Mode Toggle
+function toggleDarkMode() {
+            const body = document.body;
+            const header = document.querySelector('.header');
+            const navbar = document.querySelector('.navbar');
+
+            // Toggle dark-mode class on body, header, and navbar
+            body.classList.toggle('dark-mode');
+            header.classList.toggle('dark-mode');
+            navbar.classList.toggle('dark-mode');
+
+            // Save the user's preference to localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Check for saved user preference on page load
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.header').classList.add('dark-mode');
+                document.querySelector('.navbar').classList.add('dark-mode');
+            }
+        }
+    </script>
+</body>
+
+</html>
